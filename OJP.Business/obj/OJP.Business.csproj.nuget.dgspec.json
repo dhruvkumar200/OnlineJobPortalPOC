@@ -1,0 +1,262 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Projects\\ProjectAssignment\\OJP.Business\\OJP.Business.csproj": {}
+  },
+  "projects": {
+    "D:\\Projects\\ProjectAssignment\\OJP.Business\\OJP.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\ProjectAssignment\\OJP.Business\\OJP.Business.csproj",
+        "projectName": "OJP.Business",
+        "projectPath": "D:\\Projects\\ProjectAssignment\\OJP.Business\\OJP.Business.csproj",
+        "packagesPath": "C:\\Users\\dhruv.kumar\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\ProjectAssignment\\OJP.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\dhruv.kumar\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\Projects\\ProjectAssignment\\OJP.Models\\OJP.Models.csproj": {
+                "projectPath": "D:\\Projects\\ProjectAssignment\\OJP.Models\\OJP.Models.csproj"
+              },
+              "D:\\Projects\\ProjectAssignment\\OJP.Repository\\OJP.Repository.csproj": {
+                "projectPath": "D:\\Projects\\ProjectAssignment\\OJP.Repository\\OJP.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\ProjectAssignment\\OJP.Data\\OJP.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\ProjectAssignment\\OJP.Data\\OJP.Data.csproj",
+        "projectName": "OJP.Data",
+        "projectPath": "D:\\Projects\\ProjectAssignment\\OJP.Data\\OJP.Data.csproj",
+        "packagesPath": "C:\\Users\\dhruv.kumar\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\ProjectAssignment\\OJP.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\dhruv.kumar\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\Projects\\ProjectAssignment\\OJP.Models\\OJP.Models.csproj": {
+                "projectPath": "D:\\Projects\\ProjectAssignment\\OJP.Models\\OJP.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\ProjectAssignment\\OJP.Models\\OJP.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\ProjectAssignment\\OJP.Models\\OJP.Models.csproj",
+        "projectName": "OJP.Models",
+        "projectPath": "D:\\Projects\\ProjectAssignment\\OJP.Models\\OJP.Models.csproj",
+        "packagesPath": "C:\\Users\\dhruv.kumar\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\ProjectAssignment\\OJP.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\dhruv.kumar\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Projects\\ProjectAssignment\\OJP.Repository\\OJP.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Projects\\ProjectAssignment\\OJP.Repository\\OJP.Repository.csproj",
+        "projectName": "OJP.Repository",
+        "projectPath": "D:\\Projects\\ProjectAssignment\\OJP.Repository\\OJP.Repository.csproj",
+        "packagesPath": "C:\\Users\\dhruv.kumar\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\ProjectAssignment\\OJP.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\dhruv.kumar\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\Projects\\ProjectAssignment\\OJP.Data\\OJP.Data.csproj": {
+                "projectPath": "D:\\Projects\\ProjectAssignment\\OJP.Data\\OJP.Data.csproj"
+              },
+              "D:\\Projects\\ProjectAssignment\\OJP.Models\\OJP.Models.csproj": {
+                "projectPath": "D:\\Projects\\ProjectAssignment\\OJP.Models\\OJP.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

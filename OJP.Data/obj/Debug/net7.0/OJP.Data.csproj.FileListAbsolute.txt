@@ -1,0 +1,17 @@
+D:\Projects\ProjectAssignment\OJP.Data\bin\Debug\net7.0\OJP.Data.deps.json
+D:\Projects\ProjectAssignment\OJP.Data\bin\Debug\net7.0\OJP.Data.runtimeconfig.json
+D:\Projects\ProjectAssignment\OJP.Data\bin\Debug\net7.0\OJP.Data.dll
+D:\Projects\ProjectAssignment\OJP.Data\bin\Debug\net7.0\OJP.Data.pdb
+D:\Projects\ProjectAssignment\OJP.Data\bin\Debug\net7.0\OJP.Models.dll
+D:\Projects\ProjectAssignment\OJP.Data\bin\Debug\net7.0\OJP.Models.pdb
+D:\Projects\ProjectAssignment\OJP.Data\obj\Debug\net7.0\OJP.Data.csproj.AssemblyReference.cache
+D:\Projects\ProjectAssignment\OJP.Data\obj\Debug\net7.0\OJP.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\ProjectAssignment\OJP.Data\obj\Debug\net7.0\OJP.Data.AssemblyInfoInputs.cache
+D:\Projects\ProjectAssignment\OJP.Data\obj\Debug\net7.0\OJP.Data.AssemblyInfo.cs
+D:\Projects\ProjectAssignment\OJP.Data\obj\Debug\net7.0\OJP.Data.csproj.CoreCompileInputs.cache
+D:\Projects\ProjectAssignment\OJP.Data\obj\Debug\net7.0\OJP.Data.csproj.CopyComplete
+D:\Projects\ProjectAssignment\OJP.Data\obj\Debug\net7.0\OJP.Data.dll
+D:\Projects\ProjectAssignment\OJP.Data\obj\Debug\net7.0\refint\OJP.Data.dll
+D:\Projects\ProjectAssignment\OJP.Data\obj\Debug\net7.0\OJP.Data.pdb
+D:\Projects\ProjectAssignment\OJP.Data\obj\Debug\net7.0\OJP.Data.genruntimeconfig.cache
+D:\Projects\ProjectAssignment\OJP.Data\obj\Debug\net7.0\ref\OJP.Data.dll

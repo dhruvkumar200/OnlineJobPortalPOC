@@ -1,0 +1,76 @@
+@model OJP.Models.JobPostModel
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h1 class="h3 mb-0">Post Job</h1>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("JobPost", "Home", FormMethod.Post, new { @class = "form-signin" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <label for="Title">Job Title</label>
+                            @Html.TextBoxFor(m => m.Title, new { @class = "form-control", placeholder = "Enter Job Title",  })
+                            @Html.ValidationMessageFor(x=>x.Title)
+                        </div>
+                        <div class="form-group">
+                              <div class="form-group">
+                            <label for="Title">Job Type</label>
+                            @Html.TextBoxFor(m => m.JobType, new { @class = "form-control", placeholder = "Enter Job Title",  })
+                            @Html.ValidationMessageFor(x=>x.JobType)
+                        </div>
+                        
+                        
+                        </div>
+                        <div class="form-group">
+                            <label for="Description">Description</label>
+                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", placeholder = "Enter Jop Description",  })
+                            @Html.ValidationMessageFor(x=>x.Description)
+                        </div>
+                        <div class="form-group">
+                            <label for="Category">Category</label>
+                            @Html.TextBoxFor(m => m.Category, new { @class = "form-control", placeholder = "Enter Category",  })
+                            @Html.ValidationMessageFor(x=>x.Category)
+                        </div>
+                        <div class="form-group">
+                            <label for="Location">Location</label>
+                            @Html.TextBoxFor(m => m.Location, new { @class = "form-control", placeholder = "Enter Job Location",  })
+                            @Html.ValidationMessageFor(x=>x.Location)
+                        </div>
+                        <div class="form-group">
+                            <label for="Salary">Salary</label>
+                            @Html.TextBoxFor(m => m.Salary, new { @class = "form-control", placeholder = "Enter Salary",  })
+                            @Html.ValidationMessageFor(x=>x.Salary)
+                        </div>
+                         <div class="form-group">
+                            <label for="CompanyName">CompanyName</label>
+                            @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control", placeholder = "Name of Company",  })
+                            @Html.ValidationMessageFor(x=>x.CompanyName)
+                        </div>
+                          <div class="form-group">
+                            <label for="ContactEmail">ContactEmail</label>
+                            @Html.TextBoxFor(m => m.ContactEmail, new { @class = "form-control", placeholder = "Contact Email",  })
+                            @Html.ValidationMessageFor(x=>x.ContactEmail)
+                        </div>
+                          <div class="form-group">
+                            <label for="Contactphone">Contactphone</label>
+                            @Html.TextBoxFor(m => m.ContactPhone, new { @class = "form-control", placeholder = "ContactPhone",  })
+                            @Html.ValidationMessageFor(x=>x.ContactPhone)
+                        </div>
+                          <div class="form-group">
+                            <label for="CompanyName">CompanyName</label>
+                            @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control", placeholder = "Name of Company",  })
+                            @Html.ValidationMessageFor(x=>x.CompanyName)
+                        </div>  
+                        <br/>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">Post</button>
+                    }
+                    
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

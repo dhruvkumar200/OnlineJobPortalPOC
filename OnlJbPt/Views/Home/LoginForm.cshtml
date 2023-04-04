@@ -1,0 +1,43 @@
+@model OJP.Models.LoginModel
+@{
+
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h1 class="h3 mb-0">Login</h1>
+                </div>
+@using (Html.BeginForm("Login", "Home", FormMethod.Post, new {id="formRegistration",enctype="multipart/form-data"}))
+{
+<div class="form-group">
+   <label for="Email" class="col-md-3 control-label">Email</label>
+    <div class="col-md-9">
+      @Html.TextBoxFor(x =>x.Email, "", new { @class = "form-control", placeholder = "Email" })
+    @Html.ValidationMessageFor(x => x.Email,"",new{@class="text-danger"})
+   </div>
+</div>
+<br/>
+<div class="form-group">
+   <label for="Password" class="col-md-3 control-label">Password</label>
+    <div class="col-md-9">
+      @Html.PasswordFor(x =>x.Password, new { @class = "form-control", placeholder = "password" })
+    @Html.ValidationMessageFor(x => x.Password,"",new{@class="text-danger"})
+   </div>
+</div>
+
+
+<div class="col-md-offset-3 col-md-9">
+   <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> Sign Up</button>
+   <span style="margin-left:8px;"></span>
+</div>
+
+
+                    <p class="text-center">Don't have an account? <a asp-area="" asp-controller="Home" asp-action="AddUserForm">Sign up now</a></p>
+              
+}
+            </div>
+        </div>
+    </div>
+</div>

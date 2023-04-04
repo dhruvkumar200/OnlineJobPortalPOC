@@ -1,0 +1,12 @@
+D:\Projects\ProjectAssignment\OJP.Models\bin\Debug\net7.0\OJP.Models.deps.json
+D:\Projects\ProjectAssignment\OJP.Models\bin\Debug\net7.0\OJP.Models.dll
+D:\Projects\ProjectAssignment\OJP.Models\bin\Debug\net7.0\OJP.Models.pdb
+D:\Projects\ProjectAssignment\OJP.Models\obj\Debug\net7.0\OJP.Models.csproj.AssemblyReference.cache
+D:\Projects\ProjectAssignment\OJP.Models\obj\Debug\net7.0\OJP.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\ProjectAssignment\OJP.Models\obj\Debug\net7.0\OJP.Models.AssemblyInfoInputs.cache
+D:\Projects\ProjectAssignment\OJP.Models\obj\Debug\net7.0\OJP.Models.AssemblyInfo.cs
+D:\Projects\ProjectAssignment\OJP.Models\obj\Debug\net7.0\OJP.Models.csproj.CoreCompileInputs.cache
+D:\Projects\ProjectAssignment\OJP.Models\obj\Debug\net7.0\OJP.Models.dll
+D:\Projects\ProjectAssignment\OJP.Models\obj\Debug\net7.0\refint\OJP.Models.dll
+D:\Projects\ProjectAssignment\OJP.Models\obj\Debug\net7.0\OJP.Models.pdb
+D:\Projects\ProjectAssignment\OJP.Models\obj\Debug\net7.0\ref\OJP.Models.dll

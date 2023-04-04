@@ -1,0 +1,69 @@
+@model OJP.Models.AddUserModel
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h1 class="h3 mb-0"> SignUp as JobSeeker</h1>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("RegisterSeeker", "Home", FormMethod.Post, new { @class = "form-signin" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <label for="inputEmail">FirstName</label>
+                            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", placeholder = "FirstName",  })
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="inputEmail">LastName</label>
+                            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder = "LastName",  })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail">Email</label>
+                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Email",  })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail">Password</label>
+                            @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Password",  })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail">ConfirmPassword</label>
+                            @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control", placeholder = "ConfirmPassword",  })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail">Mobile</label>
+                            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", placeholder = "Mobile No",  })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail">CurrentCity</label>
+                            @Html.TextBoxFor(x => x.CurrentCity, new { @class = "form-control", placeholder = "CurrentCity",  })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail">Qualification</label>
+                            @Html.TextBoxFor(x => x.Qualification, new { @class = "form-control", placeholder = "Qualification",  })
+                        </div>
+
+                        <div class="form-group">
+                        <label for="File" class="col-md-3 control-label">Resume</label>
+                        <div class="col-md-9">
+                        <input type="file" name="Resume"/>
+                        </div>
+                        </div>
+
+
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                    }
+                    <hr>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

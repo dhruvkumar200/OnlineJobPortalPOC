@@ -1,0 +1,107 @@
+@model IEnumerable<OJP.Data.Entities.Login>
+
+<link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    Layout="_SeekerLayout";
+ }
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #F2F2F2;
+    }
+    a {
+        color: #4CAF50;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #4CAF50;
+        text-decoration: underline;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+<div>
+    <h2>Users</h2>
+    <p>
+        Search Name: @Html.TextBox("Search_Data", ViewBag.FilterValue as string)
+        <input type="submit" value="Find" />
+    </p>
+
+</div>
+}
+<div>
+    <h2>User Details</h2>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>FirstName</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>PhoneNumber</th>
+            <th>Role</th>
+            <th>CreatedAt</th>
+          
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var prod in Model)
+        {
+            <tr>
+                <td>
+                   @prod.FirstName
+                </td>
+                <td>
+                   @prod.LastName
+                </td>
+                <td>
+                   @prod.Age
+                </td>
+                <td>
+                   @prod.Email
+                </td>
+                <td>
+                    @if(prod.Phone==null)
+                    {
+                        <label>--</label>
+                    }
+                    else
+                    {
+                        @prod.Phone
+                    }
+
+                </td>
+                <td>@if(prod.RoleId==1)
+                    {
+                        <label>Recruiter</label>
+                    }
+                    else
+                    {
+                        <label>Seeker</label>
+                    }
+                </td>
+                 <td>
+                    @prod.CreatedAt
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+

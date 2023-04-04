@@ -1,0 +1,17 @@
+D:\Projects\ProjectAssignment\OJP.Repository\bin\Debug\net7.0\OJP.Repository.deps.json
+D:\Projects\ProjectAssignment\OJP.Repository\bin\Debug\net7.0\OJP.Repository.dll
+D:\Projects\ProjectAssignment\OJP.Repository\bin\Debug\net7.0\OJP.Repository.pdb
+D:\Projects\ProjectAssignment\OJP.Repository\bin\Debug\net7.0\OJP.Data.dll
+D:\Projects\ProjectAssignment\OJP.Repository\bin\Debug\net7.0\OJP.Models.dll
+D:\Projects\ProjectAssignment\OJP.Repository\bin\Debug\net7.0\OJP.Models.pdb
+D:\Projects\ProjectAssignment\OJP.Repository\bin\Debug\net7.0\OJP.Data.pdb
+D:\Projects\ProjectAssignment\OJP.Repository\obj\Debug\net7.0\OJP.Repository.csproj.AssemblyReference.cache
+D:\Projects\ProjectAssignment\OJP.Repository\obj\Debug\net7.0\OJP.Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\ProjectAssignment\OJP.Repository\obj\Debug\net7.0\OJP.Repository.AssemblyInfoInputs.cache
+D:\Projects\ProjectAssignment\OJP.Repository\obj\Debug\net7.0\OJP.Repository.AssemblyInfo.cs
+D:\Projects\ProjectAssignment\OJP.Repository\obj\Debug\net7.0\OJP.Repository.csproj.CoreCompileInputs.cache
+D:\Projects\ProjectAssignment\OJP.Repository\obj\Debug\net7.0\OJP.Repository.csproj.CopyComplete
+D:\Projects\ProjectAssignment\OJP.Repository\obj\Debug\net7.0\OJP.Repository.dll
+D:\Projects\ProjectAssignment\OJP.Repository\obj\Debug\net7.0\refint\OJP.Repository.dll
+D:\Projects\ProjectAssignment\OJP.Repository\obj\Debug\net7.0\OJP.Repository.pdb
+D:\Projects\ProjectAssignment\OJP.Repository\obj\Debug\net7.0\ref\OJP.Repository.dll
