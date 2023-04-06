@@ -13,7 +13,7 @@ namespace OJP.Repository
         {
             _context = context;
         }
-        public bool AddUser(AddUserModel addUser)
+        public bool AddUser(AddEditProfileModel addUser)
         {
             Login user = new Login();
             user.FirstName = addUser.FirstName;
@@ -22,6 +22,7 @@ namespace OJP.Repository
             user.Password = BCrypt.Net.BCrypt.HashPassword(addUser.Password);
             user.Phone = addUser.Phone;
             user.Age = addUser.Age;
+            user.Profile = addUser.Profile;
             user.CreatedAt = DateTime.Now;
             user.RoleId = (int?)addUser.RoleType;
             _context.Add(user);
@@ -57,44 +58,56 @@ namespace OJP.Repository
             return userAccount;
         }
 
-        public bool PostJob(JobPostModel jobPost)
-        {
-            JobPost user = new JobPost();
-            user.JobTitle = jobPost.Title;
-            user.JobDescription = jobPost.Description;
-            user.JobType = jobPost.JobType;
-            user.Email = jobPost.Category;
-            user.Location = jobPost.Location;
-            user.Salary = jobPost.Salary;
-            user.CompanyName = jobPost.CompanyName;
-            user.Email = jobPost.ContactEmail;
-            user.StartDate = jobPost.StartDate;
-            user.EndDate = jobPost.EndDate;
-            user.Phone = jobPost.ContactPhone;
-            _context.Add(user);
-            return _context.SaveChanges() > 0;
-        }
 
-        public bool RecruiterRegistration(RecruiterRegistrationModel rec)
+        public bool Education(EducationDetailModel edm)
         {
 
-            RecruiterRegistration user = new RecruiterRegistration();
-            user.CompanyName = rec.CompanyName;
-            user.Email = rec.Email;
-            user.Password = rec.Password;
-            user.ConfirmPassword = rec.ConfirmPassword;
-            user.Mobile = rec.Mobile;
-            user.Designation = rec.Designation;
-            user.City = rec.City;
-            user.EmployeeNumbers = rec.EmployeNumber;
-            user.ClientRequirement = rec.ClientRequirement;
-            _context.Add(user);
+            EducationDetail educationDetail = new EducationDetail();
+            educationDetail.Institute = edm.Institute;
+            educationDetail.Percentage = edm.Percentage;
+            educationDetail.Cgpa = edm.Cgpa;
+            educationDetail.Specilization = edm.Specilization;
+            educationDetail.Resume = edm.Resume;
+            educationDetail.CreatedBy = edm.CreatedBy;
+            TechnicalDetail technicalDetail = new TechnicalDetail();
+            technicalDetail.JobTitle = edm.JobTitle;
+            technicalDetail.CompanyName = edm.CompanyName;
+            technicalDetail.Experience = edm.Experience;
+            technicalDetail.Description = edm.Description;
+            technicalDetail.TechSkills = edm.TechSkills;
+            technicalDetail.CreatedBy = edm.CreatedBy;
+            _context.Add(educationDetail);
+            _context.Add(technicalDetail);
             return _context.SaveChanges() > 0;
         }
 
         public bool VerifyEmail(string email)
         {
             return _context.Logins.Any(x => x.Email == email);
+        }
+        public bool IsDetailAdded(int id)
+        {
+            return _context.TechnicalDetails.Any(x => x.CreatedBy == id) ? true : false;
+        }
+
+
+        public Login Profile(string emailId)
+        {
+            return _context.Logins.FirstOrDefault(x => x.Email == emailId);
+
+        }
+        public AddEditProfileModel GetUserById(int id)
+        {
+            var detail=_context.Logins.FirstOrDefault(x=>x.Id==id);
+            AddEditProfileModel addEditProfileModel=new AddEditProfileModel();
+            addEditProfileModel.Email=detail.Email;
+            addEditProfileModel.FirstName=detail.FirstName;
+            addEditProfileModel.Password=detail.Password;
+            addEditProfileModel.Age=detail.Age;
+            addEditProfileModel.Address=detail.Address;
+            addEditProfileModel.Phone=detail.Phone;
+            addEditProfileModel.Profile=detail.Profile;
+            return addEditProfileModel;
         }
     }
 }

@@ -1,0 +1,26 @@
+dotnet sln add OJP.Data/OJP.Data.csproj
+dotnet sln add OJP.Business/OJP.Business.csproj
+dotnet sln add OJP.Repository/OJP.Repository.csproj
+dotnet sln add OnlJbPt/OnlJbPt.csproj
+dotnet sln add OJP.Models/OJP.Models.csproj
+
+reference in mvc
+dotnet add reference ../OJP.Data/OJP.Data.csproj
+dotnet add reference ../OJP.Business/OJP.Business.csproj
+dotnet add reference ../OJP.Repository/OJP.Repository.csproj
+dotnet add reference ../OJP.Models/OJP.Models.csproj
+
+in business
+dotnet add reference ../OJP.Models/OJP.Models.csproj
+dotnet add reference ../OJP.Business/OJP.Business.csproj
+In Repository
+dotnet add reference ../OJP.Data/OJP.Data.csproj
+dotnet add reference ../OJP.Models/OJP.Models.csproj
+In Data
+dotnet add reference ../OJP.Models/OJP.Models.csproj
+
+dotnet ef dbContext  scaffold "Server=192.168.2.30;Database=B23-ONLNJOBP;User ID=B23-ONLNJOBP;Password=B23-ONLNJOBP#; TrustServerCertificate=True"  Microsoft.EntityFrameworkCore.SqlServer -o Entities -c EmployeeDBContext -f
+
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 7.0
+dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0
+dotnet tool install --global dotnet-ef --version 7.*

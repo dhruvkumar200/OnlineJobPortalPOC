@@ -7,15 +7,17 @@ public partial class EducationDetail
 {
     public int Id { get; set; }
 
-    public int LoginId { get; set; }
-
     public string? Institute { get; set; }
 
-    public DateTime? CompletionDate { get; set; }
+    public decimal? Percentage { get; set; }
 
-    public int? Percentage { get; set; }
+    public decimal? Cgpa { get; set; }
 
-    public int? Cgpa { get; set; }
+    public string? Specilization { get; set; }
 
-    public virtual Login Login { get; set; } = null!;
+    public string? Resume { get; set; }
+
+    public int? CreatedBy { get; set; }
+
+    public virtual Login? CreatedByNavigation { get; set; }
 }

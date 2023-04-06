@@ -1,7 +1,6 @@
-
- @model IEnumerable<OJP.Data.Entities.JobPost>
+@model IEnumerable<OJP.Data.Entities.JobApply>
 @{
-    Layout="_SeekerLayout";
+    Layout="Layout2";
     }
 <style>
     table {
@@ -28,45 +27,42 @@
         text-decoration: underline;
     }
 </style>
+
+
 <div>
-    <h2>User Details</h2>
+    <h2>AppliedJobs</h2>
 </div>
 <table>
     <thead>
         <tr>
             <th>CompanyName</th>
             <th>JobTitle</th>
+            <th>AppliedAt</th>
             <th>JobType</th>
-            <th>JobDescription</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Location</th>
+            
            
           
         </tr>
     </thead>
     <tbody>
-        @foreach(var prod in Model)
+        @foreach(var applied in Model)
         {
             <tr>
+                <td>
+                   @applied.JobPost.CompanyName
+                </td>
+                <td>
+                   @applied.JobPost.JobTitle
+                </td>
+               
                  <td>
-                    @prod.CompanyName
+                    @applied.AppliedAt
                 </td>
                 <td>
-                   @prod.JobTitle
+                   @applied.JobPost.JobType
                 </td>
-                <td>
-                   @prod.JobType
-                </td>
-                <td>
-                   @prod.JobDescription
-                </td>
-                <td>
-                   @prod.Email
-                </td>
-                <td>
-                    @prod.Phone
-                </td>
+          
+               
                 
             </tr>
         }

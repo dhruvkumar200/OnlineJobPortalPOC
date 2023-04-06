@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - OnlJbPt</title>
+    <title>@ViewData["Title"] - Online Job Portal</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/OnlJbPt.styles.css" asp-append-version="true" />
@@ -27,29 +27,25 @@
                     <div class="justify-content-around">
 
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                      
                         </li>
-                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="LoginForm">Logout</a>
-                        </li>  
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Logout">Logout</a>
+                             
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Profile">ViewProfile</a>
-                        </li> 
-
-                        
-                    </div>
-                      <div>
-                        <ul>
-
-                        <li class="nav-item list-unstyled mt-3">
-                            <a class="nav-link  card-header bg-dark text-white  col-end-9" asp-area="" asp-controller="Home" asp-action="JobPostPage">PostJob</a>
+                            <a class="nav-link text-dark" asp-action="Profile" asp-controller="Home">ViewProfile</a>
                             
                         </li>
+                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-action="JobPostPage" asp-controller="JobPost">PostJob</a>
+                            
+                        </li>
+
+                         
                         </ul>
                     </div>
-                  
+                   
 
 
 

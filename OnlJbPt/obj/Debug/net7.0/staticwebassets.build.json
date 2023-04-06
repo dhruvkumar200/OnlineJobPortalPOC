@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JlpS5/RtqFGWDKjSBkV/Uy5IHHHe1eBcPTurWEbqKrE=",
+  "Hash": "PGJnSsMvLWlOlfAukUiTwaNX/xIquLESVtRo1mV4Z+0=",
   "Source": "OnlJbPt",
   "BasePath": "_content/OnlJbPt",
   "Mode": "Default",
@@ -1069,6 +1069,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\command.txt",
+      "SourceId": "OnlJbPt",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\",
+      "BasePath": "_content/OnlJbPt",
+      "RelativePath": "Uploads/command.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\command.txt"
+    },
+    {
+      "Identity": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\profile.jpg",
+      "SourceId": "OnlJbPt",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\",
+      "BasePath": "_content/OnlJbPt",
+      "RelativePath": "Uploads/profile.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\profile.jpg"
+    },
+    {
+      "Identity": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\profile2.jpg",
+      "SourceId": "OnlJbPt",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\",
+      "BasePath": "_content/OnlJbPt",
+      "RelativePath": "Uploads/profile2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\profile2.jpg"
     }
   ]
 }

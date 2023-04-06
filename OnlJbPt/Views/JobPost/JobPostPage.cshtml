@@ -7,7 +7,7 @@
                     <h1 class="h3 mb-0">Post Job</h1>
                 </div>
                 <div class="card-body">
-                    @using (Html.BeginForm("JobPost", "Home", FormMethod.Post, new { @class = "form-signin" }))
+                    @using (Html.BeginForm("PostJob", "JobPost", FormMethod.Post, new { @class = "form-signin" }))
                     {
                         @Html.AntiForgeryToken()
                         <div class="form-group">
@@ -21,8 +21,7 @@
                             @Html.TextBoxFor(m => m.JobType, new { @class = "form-control", placeholder = "Enter Job Title",  })
                             @Html.ValidationMessageFor(x=>x.JobType)
                         </div>
-                        
-                        
+    
                         </div>
                         <div class="form-group">
                             <label for="Description">Description</label>
@@ -59,11 +58,6 @@
                             @Html.TextBoxFor(m => m.ContactPhone, new { @class = "form-control", placeholder = "ContactPhone",  })
                             @Html.ValidationMessageFor(x=>x.ContactPhone)
                         </div>
-                          <div class="form-group">
-                            <label for="CompanyName">CompanyName</label>
-                            @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control", placeholder = "Name of Company",  })
-                            @Html.ValidationMessageFor(x=>x.CompanyName)
-                        </div>  
                         <br/>
                         <button class="btn btn-lg btn-primary btn-block" type="submit">Post</button>
                     }

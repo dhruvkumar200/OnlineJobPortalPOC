@@ -1,0 +1,100 @@
+
+ @model IEnumerable<OJP.Data.Entities.JobPost>
+@{
+    Layout="Layout2";
+    }
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #F2F2F2;
+    }
+    a {
+        color: #4CAF50;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #4CAF50;
+        text-decoration: underline;
+    }
+</style>
+
+
+<div>
+    <h2>User Details</h2>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>CompanyName</th>
+            <th>JobTitle</th>
+            <th>JobType</th>
+            <th>JobDescription</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Location</th>
+            <th>Salary</th>
+            <th>StartDate</th>
+            <th>EndDate </th>
+            <th>PostedBy</th>
+            <th>ApplyJob</th>
+           
+          
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var Post in Model)
+        {
+            <tr>
+                 <td>
+                    @Post.CompanyName
+                </td>
+                <td>
+                   @Post.JobTitle
+                </td>
+                <td>
+                   @Post.JobType
+                </td>
+                <td>
+                   @Post.JobDescription
+                </td>
+                <td>
+                   @Post.Email
+                </td>
+                <td>
+                    @Post.Phone
+                </td>
+                <td>
+                    @Post.Location
+                </td>
+                <td>
+                    @Post.Salary
+                </td>
+                <td>
+                    @Post.StartDate
+                </td>
+                <td>
+                    @Post.EndDate
+                </td>
+
+                <td>
+                    @Post.PostedByNavigation.FirstName @Post.PostedByNavigation.LastName
+                </td>
+                <td>
+                    <a asp-area="" asp-controller="SeekerAppliedJob" asp-action="ApplyJob" asp-route-id="@Post.Id" >Apply</a>
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

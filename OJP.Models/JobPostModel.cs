@@ -37,6 +37,7 @@ namespace OJP.Models
     [DataType(DataType.Date)]
     public DateTime EndDate { get; set; }
     public string JobType{get; set;}
+    public int Postedby { get; set; }
 
 }
 public enum TypeOfJob{

@@ -2,7 +2,7 @@
 
 <link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
-    Layout="_SeekerLayout";
+    Layout="Layout1";
  }
 
 <style>
@@ -49,6 +49,7 @@
 <table>
     <thead>
         <tr>
+            <th>Profile</th>
             <th>FirstName</th>
             <th>Last Name</th>
             <th>Age</th>
@@ -63,6 +64,10 @@
         @foreach(var prod in Model)
         {
             <tr>
+                <td>
+                    <img src="~/Uploads/@prod.Profile" height=20% width=20% alt="NO IMAGE FOUND">
+                </td>
+               
                 <td>
                    @prod.FirstName
                 </td>
@@ -98,6 +103,7 @@
                  <td>
                     @prod.CreatedAt
                 </td>
+        
                 
             </tr>
         }

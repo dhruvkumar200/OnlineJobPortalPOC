@@ -17,6 +17,8 @@ public partial class UserDBContext : DbContext
 
     public virtual DbSet<EducationDetail> EducationDetails { get; set; }
 
+    public virtual DbSet<JobApply> JobApplies { get; set; }
+
     public virtual DbSet<JobPost> JobPosts { get; set; }
 
     public virtual DbSet<Login> Logins { get; set; }
@@ -43,13 +45,30 @@ public partial class UserDBContext : DbContext
         {
             entity.ToTable("EducationDetail");
 
-            entity.Property(e => e.CompletionDate).HasColumnType("date");
+            entity.Property(e => e.Cgpa).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.Institute).HasMaxLength(200);
+            entity.Property(e => e.Percentage).HasColumnType("decimal(18, 0)");
+            entity.Property(e => e.Resume).HasMaxLength(50);
+            entity.Property(e => e.Specilization).HasMaxLength(50);
 
-            entity.HasOne(d => d.Login).WithMany(p => p.EducationDetails)
-                .HasForeignKey(d => d.LoginId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Education_detail_Seeker_profile");
+            entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.EducationDetails)
+                .HasForeignKey(d => d.CreatedBy)
+                .HasConstraintName("FK_EducationDetail_Login");
+        });
+
+        modelBuilder.Entity<JobApply>(entity =>
+        {
+            entity.ToTable("JobApply");
+
+            entity.Property(e => e.AppliedAt).HasColumnType("datetime");
+
+            entity.HasOne(d => d.ApplyByNavigation).WithMany(p => p.JobApplies)
+                .HasForeignKey(d => d.ApplyBy)
+                .HasConstraintName("FK_JobApply_Login");
+
+            entity.HasOne(d => d.JobPost).WithMany(p => p.JobApplies)
+                .HasForeignKey(d => d.JobPostId)
+                .HasConstraintName("FK_JobApply_JobApply");
         });
 
         modelBuilder.Entity<JobPost>(entity =>
@@ -78,6 +97,11 @@ public partial class UserDBContext : DbContext
                 .IsFixedLength();
             entity.Property(e => e.Salary).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.StartDate).HasColumnType("date");
+
+            entity.HasOne(d => d.PostedByNavigation).WithMany(p => p.JobPosts)
+                .HasForeignKey(d => d.PostedBy)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_JobPost_Login");
         });
 
         modelBuilder.Entity<Login>(entity =>
@@ -93,6 +117,7 @@ public partial class UserDBContext : DbContext
             entity.Property(e => e.LastName).HasMaxLength(100);
             entity.Property(e => e.Password).HasMaxLength(250);
             entity.Property(e => e.Phone).HasMaxLength(20);
+            entity.Property(e => e.Profile).HasMaxLength(50);
         });
 
         modelBuilder.Entity<RecruiterLogin>(entity =>
@@ -181,17 +206,14 @@ public partial class UserDBContext : DbContext
 
             entity.ToTable("TechnicalDetail");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.CompanyName).HasMaxLength(50);
-            entity.Property(e => e.Experience).HasMaxLength(50);
+            entity.Property(e => e.Experience).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.JobTitle).HasMaxLength(50);
-            entity.Property(e => e.LoginId).ValueGeneratedOnAdd();
             entity.Property(e => e.TechSkills).HasMaxLength(50);
 
-            entity.HasOne(d => d.Login).WithMany(p => p.TechnicalDetails)
-                .HasForeignKey(d => d.LoginId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Experience_detail_Seeker_profile");
+            entity.HasOne(d => d.CreatedByNavigation).WithMany(p => p.TechnicalDetails)
+                .HasForeignKey(d => d.CreatedBy)
+                .HasConstraintName("FK_TechnicalDetail_Login");
         });
 
         modelBuilder.Entity<Userlog>(entity =>

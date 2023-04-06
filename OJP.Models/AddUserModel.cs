@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace OJP.Models
 {
-    public class AddUserModel
+    public class AddEditProfileModel
     {
         public int Id { get; set; }
         [Required(ErrorMessage ="Rrequired")]

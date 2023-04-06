@@ -1,0 +1,102 @@
+@model OJP.Models.EducationDetailModel
+@{
+   
+}
+<h2 class="text-center">Education Detail</h2>
+
+@using (Html.BeginForm("EducationDetail", "Home", FormMethod.Post, new {id="formRegistration",enctype="multipart/form-data"}))
+{
+<div class="form-group">
+   <label for="Institute" class="col-md-3 control-label">Institute</label>
+    <div class="col-md-9">
+      @Html.TextBoxFor(x =>x.Institute, "", new { @class = "form-control", placeholder = "Enter Institute" })
+    @Html.ValidationMessageFor(x => x.Institute,"",new{@class="text-danger"})
+   </div>
+</div>
+<br/>
+
+<div class="form-group">
+   <label for="Percentage" class="col-md-3 control-label">Percentage</label>
+    <div class="col-md-9">
+      @Html.TextBoxFor(x =>x.Percentage, "", new { @class = "form-control", placeholder = "Enter your Percentage" })
+    @Html.ValidationMessageFor(x => x.Percentage,"",new{@class="text-danger"})
+   </div>
+</div>
+<br/>
+
+<div class="form-group">
+   <label for="Cgpa" class="col-md-3 control-label">Cgpa</label>
+<div class="col-md-9">
+   @Html.TextBoxFor(x => x.Cgpa, "", new { @class = "form-control", placeholder = "Enter Cgpa" })
+   @Html.ValidationMessageFor(x => x.Cgpa,"",new{@class="text-danger"})
+   </div>
+</div>
+<br/>
+
+<div class="form-group">
+   <label for="Specilization" class="col-md-3 control-label">Specilization</label>
+<div class="col-md-9">
+   @Html.TextBoxFor(x => x.Specilization, new { @class = "form-control", placeholder = "Enter Specilization" })
+    @Html.ValidationMessageFor(x => x.Specilization,"",new{@class="text-danger"})
+</div>
+</div>
+<br/>
+
+<div class="form-group">
+   <label for="JobTitle" class="col-md-3 control-label">JobTitle</label>
+<div class="col-md-9">
+   @Html.TextBoxFor(x => x.JobTitle , new { @class = "form-control", placeholder = "Enter JobTitle" })
+   @Html.ValidationMessageFor(x => x.JobTitle,"",new{@class="text-danger"} )
+</div>
+</div>
+<br/>
+
+<div class="form-group">
+   <label for="CompanyName" class="col-md-3 control-label"> CompanyName</label>
+<div class="col-md-9">
+   @Html.TextBoxFor(x => x.CompanyName , new { @class = "form-control", placeholder = "Enter CompanyName" })
+   @Html.ValidationMessageFor(x => x.CompanyName,"",new{@class="text-danger"} )
+</div>
+</div>
+<br/>
+
+<div class="form-group">
+   <label for="Resume" class="col-md-3 control-label">Resume</label>
+<div class="col-md-9">
+   <input type="file" name="Resume"/>
+</div>
+</div>
+<br/>
+
+<div class="form-group">
+   <label for="Experience" class="col-md-3 control-label">Experience</label>
+<div class="col-md-9">
+   @Html.TextBoxFor(x => x.Experience, "", new { @class = "form-control", placeholder = "Experience" })
+   @Html.ValidationMessageFor(x => x.Experience,"",new{@class="text-danger"})
+   </div>
+</div>
+
+<div class="form-group">
+   <label for="Description" class="col-md-3 control-label">Description</label>
+<div class="col-md-9">
+   @Html.TextBoxFor(x => x.Description, "", new { @class = "form-control", placeholder = "Description" })
+   @Html.ValidationMessageFor(x => x.Description,"",new{@class="text-danger"})
+   </div>
+</div>
+
+<div class="form-group">
+   <label for="TechSkills" class="col-md-3 control-label">TechSkills</label>
+<div class="col-md-9">
+   @Html.TextBoxFor(x => x.TechSkills, "", new { @class = "form-control", placeholder = "TechSkills" })
+   @Html.ValidationMessageFor(x => x.TechSkills,"",new{@class="text-danger"})
+   </div>
+</div>
+
+
+<div class="col-md-offset-3 col-md-9">
+   <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i>Submit</button>
+   <span style="margin-left:8px;"></span>
+</div>
+
+}
+

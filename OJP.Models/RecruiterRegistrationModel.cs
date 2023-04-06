@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 namespace OJP.Models
 {
-    public class RecruiterRegistrationModel
+    public class SeekerEducationModel
     {
         [Required(ErrorMessage = "Required")]
     [StringLength(50, ErrorMessage = "Job title must be between 1 and 50 characters.")]

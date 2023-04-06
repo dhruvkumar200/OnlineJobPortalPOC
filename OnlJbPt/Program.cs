@@ -13,6 +13,8 @@ builder.Services.AddControllersWithViews()
  .AddDataAnnotationsLocalization();
 builder.Services.AddScoped<IUserBusiness,UserBusiness>();
 builder.Services.AddScoped<IUserRepository,UserRepository>();
+builder.Services.AddScoped<IPostJobBusiness,PostJobBusiness>();
+builder.Services.AddScoped<IPostJobRepository,PostJobRepository>();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x=>x.LoginPath=new PathString("/Login/Index"));
 builder.Services.AddDbContext<UserDBContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("JobPortalDatabase")));
 

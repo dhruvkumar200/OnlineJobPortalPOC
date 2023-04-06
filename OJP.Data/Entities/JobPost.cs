@@ -26,4 +26,10 @@ public partial class JobPost
     public DateTime? StartDate { get; set; }
 
     public DateTime? EndDate { get; set; }
+
+    public int PostedBy { get; set; }
+
+    public virtual ICollection<JobApply> JobApplies { get; } = new List<JobApply>();
+
+    public virtual Login PostedByNavigation { get; set; } = null!;
 }

@@ -5,6 +5,18 @@
       "PackagePath": "staticwebassets\\OnlJbPt.bundle.scp.css"
     },
     {
+      "Id": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\command.txt",
+      "PackagePath": "staticwebassets\\Uploads\\command.txt"
+    },
+    {
+      "Id": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\profile.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\profile.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\profile2.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\profile2.jpg"
+    },
+    {
       "Id": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
