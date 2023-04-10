@@ -13,7 +13,7 @@ namespace OJP.Repository
         {
             _context = context;
         }
-        public bool AddUser(AddEditProfileModel addUser)
+        public bool AddUser(AddProfileModel addUser)
         {
             Login user = new Login();
             user.FirstName = addUser.FirstName;
@@ -23,6 +23,7 @@ namespace OJP.Repository
             user.Phone = addUser.Phone;
             user.Age = addUser.Age;
             user.Profile = addUser.Profile;
+            user.Address = addUser.Address;
             user.CreatedAt = DateTime.Now;
             user.RoleId = (int?)addUser.RoleType;
             _context.Add(user);
@@ -96,18 +97,37 @@ namespace OJP.Repository
             return _context.Logins.FirstOrDefault(x => x.Email == emailId);
 
         }
-        public AddEditProfileModel GetUserById(int id)
+         public bool EditProfileDetail(EditProfileModel editProfileModel)
         {
-            var detail=_context.Logins.FirstOrDefault(x=>x.Id==id);
-            AddEditProfileModel addEditProfileModel=new AddEditProfileModel();
-            addEditProfileModel.Email=detail.Email;
-            addEditProfileModel.FirstName=detail.FirstName;
-            addEditProfileModel.Password=detail.Password;
-            addEditProfileModel.Age=detail.Age;
-            addEditProfileModel.Address=detail.Address;
-            addEditProfileModel.Phone=detail.Phone;
-            addEditProfileModel.Profile=detail.Profile;
-            return addEditProfileModel;
+            Login user = new Login();
+            user.FirstName = editProfileModel.FirstName;
+            user.LastName = editProfileModel.LastName;
+            user.Email = editProfileModel.Email;
+            user.Password = BCrypt.Net.BCrypt.HashPassword(editProfileModel.Password);
+            user.Phone = editProfileModel.Phone;
+            user.Age = editProfileModel.Age;
+            user.Profile = editProfileModel.Profile;
+            user.Address = editProfileModel.Address;
+            user.CreatedAt = DateTime.Now;
+            user.RoleId = (int?)editProfileModel.RoleType;
+            user.Id = editProfileModel.Id;
+            _context.Update(user);
+            return _context.SaveChanges() > 0;
+        }
+        public EditProfileModel GetUserById(int id)
+        {
+            var detail = _context.Logins.FirstOrDefault(x => x.Id == id);
+            EditProfileModel editProfileModel = new EditProfileModel();
+            editProfileModel.Email = detail.Email;
+            editProfileModel.FirstName = detail.FirstName;
+            editProfileModel.LastName = detail.LastName;
+            editProfileModel.Address = detail.Address;
+            editProfileModel.Age = detail.Age;
+            editProfileModel.Phone = detail.Phone;
+            editProfileModel.Profile = detail.Profile;
+            editProfileModel.Profile = detail.Password;
+
+            return editProfileModel;
         }
     }
 }

@@ -8,12 +8,15 @@ namespace OJP.Business
     public interface IUserBusiness
     {
         public Login GetUserDetailByEmail(String Email);
-        bool NewRegistration(AddEditProfileModel AddEditProfileModel);
+        bool NewRegistration(AddProfileModel AddProfileModel);
         bool SeekerEducation(EducationDetailModel edm);
         IEnumerable<Login> GetUserList(string Search_Data, int roleId);
         bool VerifyEmail(string email);
         public Login Profile(string emailId);
-        public AddEditProfileModel GetUserById(int id);
+        public EditProfileModel GetUserById(int id);
         public bool IsDetailAdded(int id);
+        public bool EditProfileDetail(EditProfileModel editProfileModel);
+     
+
     }
 }

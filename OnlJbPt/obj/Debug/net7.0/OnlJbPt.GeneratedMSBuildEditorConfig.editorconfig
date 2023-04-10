@@ -16,12 +16,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Projects\ProjectAssignment\OnlJbPt
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Projects/ProjectAssignment/OnlJbPt/Views/Home/AddEditProfile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRFZGl0UHJvZmlsZS5jc2h0bWw=
+[D:/Projects/ProjectAssignment/OnlJbPt/Views/Home/AddProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/ProjectAssignment/OnlJbPt/Views/Home/DisplayDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEaXNwbGF5RGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/ProjectAssignment/OnlJbPt/Views/Home/EditProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0UHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/ProjectAssignment/OnlJbPt/Views/Home/Index.cshtml]

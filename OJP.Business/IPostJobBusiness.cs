@@ -10,5 +10,6 @@ namespace OJP.Business
         IEnumerable<JobPost> GetJobPosts();
         bool ApplyJob(ApplyJobModel applyJobModel);
         public IEnumerable<JobApply> GetSeekerAppliedJob(int id);
+        bool DeleteAppliedJob(int id);
     }
 }

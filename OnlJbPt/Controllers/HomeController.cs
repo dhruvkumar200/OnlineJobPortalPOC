@@ -80,12 +80,12 @@ public class HomeController : Controller
 
 
     }
-    public IActionResult AddEditProfile()
+    public IActionResult AddProfile()
     {
         return View();
     }
     [HttpPost]
-    public IActionResult AddUser(AddEditProfileModel AddEditProfileModel, IFormFile Profile)
+    public IActionResult AddUser(AddProfileModel addProfileModel, IFormFile Profile)
     {
         string wwwPath = this.Environment.WebRootPath;
         string contentPath = this.Environment.ContentRootPath;
@@ -102,8 +102,8 @@ public class HomeController : Controller
             uploadedFiles.Add(fileName);
             ViewBag.Message += string.Format("<b>{0}</b> Profile pic uploaded.<br />", fileName);
         }
-        AddEditProfileModel.Profile = fileName;
-        _iUserBusiness.NewRegistration(AddEditProfileModel);
+        addProfileModel.Profile = fileName;
+        _iUserBusiness.NewRegistration(addProfileModel);
         return RedirectToAction(actionName: "Index", controllerName: "Home");
 
     }
@@ -172,12 +172,33 @@ public class HomeController : Controller
         return View(details);
     }
     [HttpGet]
-    public IActionResult EditProfile(int id)
+    public IActionResult GetProfileDetail(int id)
     {
-        AddEditProfileModel addEditProfileModel = _iUserBusiness.GetUserById(id);
-        return View("AddEditProfile", addEditProfileModel);
-
+        EditProfileModel editProfileModel = _iUserBusiness.GetUserById(id);
+        return View("EditProfile", editProfileModel);
     }
+     public IActionResult ChangeProfileDetail(EditProfileModel editProfileModel,IFormFile Profile)
+     {
+         string wwwPath = this.Environment.WebRootPath;
+        string contentPath = this.Environment.ContentRootPath;
+        string path = Path.Combine(this.Environment.WebRootPath, "Uploads");
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+        List<string> uploadedFiles = new List<string>();
+        string fileName = Path.GetFileName(Profile.FileName);
+        using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+        {
+            Profile.CopyTo(stream);
+            uploadedFiles.Add(fileName);
+            ViewBag.Message += string.Format("<b>{0}</b> Profile pic uploaded.<br />", fileName);
+        }
+        editProfileModel.Profile = fileName;
+        _iUserBusiness.EditProfileDetail(editProfileModel);
+        return RedirectToAction(actionName: "Index", controllerName: "Home");
+    }
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

@@ -19,9 +19,9 @@ namespace OJP.Business
 
             return _iUserRepository.GetUserDetailByEmail(Email);
         }
-        public bool NewRegistration(AddEditProfileModel AddEditProfileModel)
+        public bool NewRegistration(AddProfileModel AddProfileModel)
         {
-            return _iUserRepository.AddUser(AddEditProfileModel);
+            return _iUserRepository.AddUser(AddProfileModel);
         }
 
         public bool SeekerEducation(EducationDetailModel edm)
@@ -42,7 +42,7 @@ namespace OJP.Business
             return _iUserRepository.Profile(emailId);
         }
 
-        public AddEditProfileModel GetUserById(int id)
+        public EditProfileModel GetUserById(int id)
         {
             return _iUserRepository.GetUserById(id);
         }
@@ -51,6 +51,11 @@ namespace OJP.Business
         {
             return _iUserRepository.IsDetailAdded(id);
         }
+       public bool EditProfileDetail(EditProfileModel editProfileModel)
+       {
+            return _iUserRepository.EditProfileDetail(editProfileModel);
+        }
+       
        
        
     }

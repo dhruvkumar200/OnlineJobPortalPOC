@@ -7,8 +7,14 @@
     <title>Item Details</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha512-lQgbzihym+q3XJHbGKfoMN5NY6av94UxCTdD5j5RrIYrGzdWdtjKX9ArpCMZxEys+OtJ0+pG+HDTjw/bJyTgTQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <style>
+        .con{
+            text-align:center;
+        }
+    </style>
 </head>
 <body>
+  
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6 offset-md-3">
@@ -36,7 +42,7 @@
                                 {
                                         <label>Seeker</label>
                                 }
-                                else
+                                else if(Model.RoleId==3)
                                 {
                                     <label>Admin</label>
                                 }
@@ -46,13 +52,24 @@
                             <th scope="row">Phone No</th>
                             <td>@Model.Phone</td>
                         </tr>
+                          <tr>
+                            <th scope="row">Age</th>
+                            <td>@Model.Age</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Address</th>
+                            <td>@Model.Address</td>
+                        </tr>
+                      
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-     <a asp-area="" asp-controller="Home" asp-action="EditProfile" asp-route-id="@Model.Id">EditProfile</a>
-    <!-- Bootstrap JS -->
+    <div class="con">
+     <a asp-area="" asp-controller="Home" asp-action="GetProfileDetail" asp-route-id="@Model.Id">EditProfile</a>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha512-PO0BZiJivQsKj+TnlytUBpTnLq1JXs1sKx81nJnZscA2J31GzH4kb+ccG2f1FgicL9XpAhIeA1BC+ZwRsJMcPw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>

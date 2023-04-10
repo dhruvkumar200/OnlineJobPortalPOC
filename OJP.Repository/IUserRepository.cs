@@ -5,7 +5,7 @@ namespace OJP.Repository
 {
     public interface IUserRepository
     {
-        bool AddUser(AddEditProfileModel addUser);
+        bool AddUser(AddProfileModel addUser);
 
         public IEnumerable<Login> GetUserList(string Search_Data, int roleId);
         public Login GetUserDetailByEmail(String Email);
@@ -13,9 +13,9 @@ namespace OJP.Repository
         public Login Profile(string emailId);
         bool Education(EducationDetailModel edm);
         public bool IsDetailAdded(int id);
-        public AddEditProfileModel GetUserById(int id);
-        
-       
+        public EditProfileModel GetUserById(int id);
+        public bool EditProfileDetail(EditProfileModel editProfileModel);
+
 
 
 

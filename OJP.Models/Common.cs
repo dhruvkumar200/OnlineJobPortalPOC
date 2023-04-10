@@ -17,6 +17,21 @@ namespace OJP.Models
             Scheduled = 2,
             Rejected = 3
         }
+        public enum Category
+        {
+            Finance,
+            Sales,
+            Developer,
+            UXDegigner,
+            BusinessAnalyst
+
+        }
+        public enum JobType
+        {
+            Remote,
+            Office
+        }
+        
     }
 
 

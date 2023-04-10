@@ -45,12 +45,11 @@ public class JobPostController : Controller
         _iPostJobBusiness.ApplyJob(applyJobModel);
         if (_iPostJobBusiness.ApplyJob(applyJobModel) == true)
         {
-            ViewData["JobApplymsg"] = "Applied sucessfully";
-
+            TempData["JobApplymsg"] = "Applied sucessfully";
         }
         else
         {
-            ViewData["JobApplymsg"] = "Already Applied";
+            TempData["JobApplymsg"] = "Already Applied";
         }
 
         return RedirectToAction("Index", "Home");
@@ -68,6 +67,11 @@ public class JobPostController : Controller
         var id = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserId").Value);
         var applyJobList = _iPostJobBusiness.GetSeekerAppliedJob(id);
         return View(applyJobList);
+    }
+    public IActionResult DeleteAppliedJob(int id)
+    {
+        _iPostJobBusiness.DeleteAppliedJob(id);
+        return RedirectToAction("SeekerAppliedJob", "JobPost");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

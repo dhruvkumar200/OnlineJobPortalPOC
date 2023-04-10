@@ -1,6 +1,6 @@
 @model IEnumerable<OJP.Data.Entities.JobApply>
 @{
-    Layout="Layout2";
+    Layout="Layout1";
     }
 <style>
     table {
@@ -60,6 +60,9 @@
                 </td>
                 <td>
                    @applied.JobPost.JobType
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "DeleteAppliedJob", new { @Id=applied.Id}, new { onclick = "return confirm('Are you sure you want to delete this user detail?');" })
                 </td>
           
                

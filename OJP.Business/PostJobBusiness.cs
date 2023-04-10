@@ -25,10 +25,14 @@ namespace OJP.Business
         {
             return _iPostJobRepository.ApplyJob(applyJobModel);
         }
-          public IEnumerable<JobApply> GetSeekerAppliedJob(int id)
-          {
+        public IEnumerable<JobApply> GetSeekerAppliedJob(int id)
+        {
             return _iPostJobRepository.GetSeekerAppliedJob(id);
-          }
-        
+        }
+        public bool DeleteAppliedJob(int id)
+        {
+            return _iPostJobRepository.DeleteAppliedJob(id);
+        }
+
     }
 }

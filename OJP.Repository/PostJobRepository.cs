@@ -32,7 +32,7 @@ namespace OJP.Repository
         public bool ApplyJob(ApplyJobModel applyJobModel)
         {
             var existingApply = _context.JobApplies.FirstOrDefault(x => x.ApplyBy == applyJobModel.ApplyBy && x.JobPostId == applyJobModel.JobPostId);
-            if(existingApply!=null)
+            if (existingApply != null)
             {
                 return false;
             }
@@ -40,7 +40,7 @@ namespace OJP.Repository
             jobApply.AppliedAt = DateTime.Now;
             jobApply.ApplyBy = applyJobModel.ApplyBy;
             jobApply.JobPostId = applyJobModel.JobPostId;
-            jobApply.Status=(int)Common.JobStatus.InProgress;
+            jobApply.Status = (int)Common.JobStatus.InProgress;
             _context.Add(jobApply);
             return _context.SaveChanges() > 0;
         }
@@ -49,10 +49,21 @@ namespace OJP.Repository
         {
             return _context.JobPosts.Include(x => x.PostedByNavigation).ToList();
         }
-         public IEnumerable<JobApply> GetSeekerAppliedJob(int id)
+        public IEnumerable<JobApply> GetSeekerAppliedJob(int id)
         {
-            return _context.JobApplies.Include(x => x.JobPost).Include(x=>x.ApplyByNavigation)
-            .Where(x=>x.ApplyBy==id).OrderByDescending(x=>x.AppliedAt).ToList();
+            return _context.JobApplies.Include(x => x.JobPost).Include(x => x.ApplyByNavigation)
+            .Where(x => x.ApplyBy == id).OrderByDescending(x => x.AppliedAt).ToList();
+        }
+        public bool DeleteAppliedJob(int id)
+        {
+            var detail = _context.JobApplies.FirstOrDefault(x => x.Id == id);
+            if (detail != null)
+            {
+                _context.JobApplies.Remove(detail);
+                _context.SaveChanges();
+            }
+            return true;
+
         }
 
     }
