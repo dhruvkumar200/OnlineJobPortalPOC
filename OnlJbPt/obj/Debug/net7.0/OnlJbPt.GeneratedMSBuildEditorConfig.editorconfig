@@ -16,8 +16,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Projects\ProjectAssignment\OnlJbPt
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Projects/ProjectAssignment/OnlJbPt/Views/Home/AddProfile.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRQcm9maWxlLmNzaHRtbA==
+[D:/Projects/ProjectAssignment/OnlJbPt/Views/Home/AddEditProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRFZGl0UHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/ProjectAssignment/OnlJbPt/Views/Home/DisplayDetails.cshtml]
@@ -46,6 +46,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Projects/ProjectAssignment/OnlJbPt/Views/Home/SeekerEducationForm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWVrZXJFZHVjYXRpb25Gb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projects/ProjectAssignment/OnlJbPt/Views/Home/ViewSeekerDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWaWV3U2Vla2VyRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Projects/ProjectAssignment/OnlJbPt/Views/JobPost/JobPostPage.cshtml]

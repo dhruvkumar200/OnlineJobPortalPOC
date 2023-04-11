@@ -17,9 +17,9 @@ namespace OJP.Business
         {
             return _iPostJobRepository.PostJob(jobPost);
         }
-        public IEnumerable<JobPost> GetJobPosts()
+        public IEnumerable<JobPost> GetJobPosts(int id)
         {
-            return _iPostJobRepository.GetJobPosts();
+            return _iPostJobRepository.GetJobPosts(id);
         }
         public bool ApplyJob(ApplyJobModel applyJobModel)
         {

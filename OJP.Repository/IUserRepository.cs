@@ -15,8 +15,7 @@ namespace OJP.Repository
         public bool IsDetailAdded(int id);
         public EditProfileModel GetUserById(int id);
         public bool EditProfileDetail(EditProfileModel editProfileModel);
-
-
+        public Login GetSeekerDetailById(int id);
 
 
     }

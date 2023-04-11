@@ -1,8 +1,19 @@
-
- @model IEnumerable<OJP.Data.Entities.JobPost>
+@using OJP.Models;
+@model IEnumerable<OJP.Data.Entities.JobPost>
 @{
-    Layout="Layout2";
+    Pager pager = new Pager();
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
     }
+    Layout = "Layout2";
+    
+    
+   
+
+}
 <style>
     table {
         border-collapse: collapse;
@@ -28,10 +39,17 @@
         text-decoration: underline;
     }
 </style>
+<div>
+    <p>
+        Search: @Html.TextBox("Search_Data", ViewBag.FilterValue as string)
+        <input type="submit" value="Find" />
+    </p>
+
+</div>
 
 
 <div>
-    <h2>User Details</h2>
+    <h2>PostedJobs</h2>
 </div>
 <table>
     <thead>
@@ -48,28 +66,28 @@
             <th>EndDate </th>
             <th>PostedBy</th>
             <th>ApplyJob</th>
-           
-          
+
+
         </tr>
     </thead>
     <tbody>
-        @foreach(var Post in Model)
+        @foreach (var Post in Model)
         {
             <tr>
-                 <td>
+                <td>
                     @Post.CompanyName
                 </td>
                 <td>
-                   @Post.JobTitle
+                    @Post.JobTitle
                 </td>
                 <td>
-                   @Post.JobType
+                    @Post.JobType
                 </td>
                 <td>
-                   @Post.JobDescription
+                    @Post.JobDescription
                 </td>
                 <td>
-                   @Post.Email
+                    @Post.Email
                 </td>
                 <td>
                     @Post.Phone
@@ -88,13 +106,56 @@
                 </td>
 
                 <td>
-                    @Post.PostedByNavigation.FirstName @Post.PostedByNavigation.LastName
+                    @Post.PostedByNavigation.FirstName
+                    @Post.PostedByNavigation.LastName
                 </td>
                 <td>
-                    <a asp-area="" asp-controller="JobPost" asp-action="ApplyJob" asp-route-id="@Post.Id" >Apply</a>
+                    <a asp-area="" asp-controller="JobPost" asp-action="ApplyJob"
+                    asp-route-id="@Post.Id">Apply</a>
                 </td>
-                
+
             </tr>
         }
     </tbody>
 </table>
+<div class="container">
+    @if (pager.TotalPages > 0)
+    {
+        <ul class="pagination justify-content-end">
+            @if (pager.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-controller="JobPost"
+                asp-action="PostedJobsDetail"
+                asp-route-pg="1">First</a>
+                </li>
+                <li>
+                    <a class="page-link" asp-controller="JobPost"
+                asp-action="PostedJobsDetail"
+                asp-route-pg="@(pager.CurrentPage-1)">Previous</a>
+                </li>
+            }
+            @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+            {
+                <li class="page-item @(pge == pager.CurrentPage ? "active" : "")">
+                    <a class="page-link" asp-controller="JobPost"
+                asp-action="PostedJobsDetail"
+                asp-route-pg="@pge">@pge</a>
+                </li>
+            }
+            @if (pager.CurrentPage < pager.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-controller="JobPost"
+                asp-action="PostedJobsDetail"
+                asp-route-pg="@(pager.CurrentPage+1)">Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" asp-controller="JobPost"
+                asp-action="PostedJobsDetail"
+                asp-route-pg="@(pager.TotalPages)">Last</a>
+                </li>
+            }
+        </ul>
+    }
+</div>

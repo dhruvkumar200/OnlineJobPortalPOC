@@ -74,7 +74,7 @@ public class HomeController : Controller
         else
         {
             ViewData["Errormsg"] = "Incorrect Email or Password";
-            return View("Index");
+            return View("LoginForm");
         }
 
 
@@ -197,6 +197,11 @@ public class HomeController : Controller
         editProfileModel.Profile = fileName;
         _iUserBusiness.EditProfileDetail(editProfileModel);
         return RedirectToAction(actionName: "Index", controllerName: "Home");
+    }
+    public IActionResult ViewSeekerDetail(int id)
+    {
+       var details= _iUserBusiness.GetSeekerDetailById(id);
+        return View(details);
     }
 
 

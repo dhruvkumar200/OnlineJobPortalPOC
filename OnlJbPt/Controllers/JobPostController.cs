@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Linq;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -42,25 +43,37 @@ public class JobPostController : Controller
     {
         applyJobModel.ApplyBy = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserId").Value);
         applyJobModel.JobPostId = id;
-        _iPostJobBusiness.ApplyJob(applyJobModel);
         if (_iPostJobBusiness.ApplyJob(applyJobModel) == true)
         {
-            TempData["JobApplymsg"] = "Applied sucessfully";
+            ViewData["JobApplymsg"] = "Applied sucessfully";
         }
         else
         {
-            TempData["JobApplymsg"] = "Already Applied";
+            ViewData["JobApplymsg"] = "Already Applied";
         }
 
-        return RedirectToAction("Index", "Home");
+        return RedirectToAction("SeekerAppliedJob", "JobPost");
 
     }
 
-    public IActionResult PostedJobsDetail()
+    public IActionResult PostedJobsDetail(string Search_Data,int pg = 1)
     {
-        IEnumerable<JobPost> PostedList = _iPostJobBusiness.GetJobPosts();
-        PostedList = PostedList.ToList();
-        return View(PostedList);
+        ViewBag.Search_Data = !String.IsNullOrEmpty(Search_Data) ? Search_Data : null;
+        var claims = User.Identities.First().Claims.ToList();
+        var claimRole = claims?.FirstOrDefault(x => x.Type.Contains("Role", StringComparison.OrdinalIgnoreCase))?.Value;
+        int roleId = Convert.ToInt32(claimRole);
+        IEnumerable<JobPost> PostedList = _iPostJobBusiness.GetJobPosts(roleId);
+         const int pageSize = 3;
+            if (pg < 1)
+            {
+                pg = 1;
+            }
+            int recsCount = PostedList.Count();
+            var pager = new Pager(recsCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+            var data = PostedList.Skip(recSkip).Take(pager.Pagesize).ToList();
+            this.ViewBag.Pager = pager;
+            return View(data);
     }
     public IActionResult SeekerAppliedJob()
     {

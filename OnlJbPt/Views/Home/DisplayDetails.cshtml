@@ -2,8 +2,8 @@
 
 <link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
-    Layout="Layout1";
- }
+    Layout = "Layout1";
+}
 
 <style>
     table {
@@ -30,16 +30,15 @@
         text-decoration: underline;
     }
 </style>
-
 @using (Html.BeginForm())
 {
-<div>
-    <p>
-        Search Name: @Html.TextBox("Search_Data", ViewBag.FilterValue as string)
-        <input type="submit" value="Find" />
-    </p>
+    <div>
+        <p>
+            Search Name: @Html.TextBox("Search_Data", ViewBag.FilterValue as string)
+            <input type="submit" value="Find" />
+        </p>
 
-</div>
+    </div>
 }
 <div>
     <h2>Job seeker Details</h2>
@@ -56,31 +55,33 @@
             <th>PhoneNumber</th>
             <th>Role</th>
             <th>CreatedAt</th>
-          
+             <th>View Details</th>
+
         </tr>
     </thead>
     <tbody>
-        @foreach(var prod in Model)
+        @foreach (var prod in Model)
         {
             <tr>
                 <td>
-                    <img src="~/Uploads/@prod.Profile" height=20% width=20% alt="NO IMAGE FOUND">
+                    <img src="~/Uploads/@prod.Profile" height=20% width=20% alt="NO
+                    IMAGE FOUND">
                 </td>
-               
+
                 <td>
-                   @prod.FirstName
-                </td>
-                <td>
-                   @prod.LastName
+                    @prod.FirstName
                 </td>
                 <td>
-                   @prod.Age
+                    @prod.LastName
                 </td>
                 <td>
-                   @prod.Email
+                    @prod.Age
                 </td>
                 <td>
-                    @if(prod.Phone==null)
+                    @prod.Email
+                </td>
+                <td>
+                    @if (prod.Phone == null)
                     {
                         <label>--</label>
                     }
@@ -90,7 +91,7 @@
                     }
 
                 </td>
-                <td>@if(prod.RoleId==1)
+                <td>@if (prod.RoleId == 1)
                     {
                         <label>Recruiter</label>
                     }
@@ -99,11 +100,15 @@
                         <label>Seeker</label>
                     }
                 </td>
-                 <td>
+                <td>
                     @prod.CreatedAt
                 </td>
-        
-                
+                <td>
+                    <a asp-area="" asp-controller="Home" asp-action="ViewSeekerDetail"
+                    asp-route-id="@prod.Id">ViewDetails</a>
+                </td>
+
+
             </tr>
         }
     </tbody>

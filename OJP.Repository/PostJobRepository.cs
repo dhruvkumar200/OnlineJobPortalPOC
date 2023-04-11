@@ -45,8 +45,9 @@ namespace OJP.Repository
             return _context.SaveChanges() > 0;
         }
 
-        public IEnumerable<JobPost> GetJobPosts()
+        public IEnumerable<JobPost> GetJobPosts(int id)
         {
+            
             return _context.JobPosts.Include(x => x.PostedByNavigation).ToList();
         }
         public IEnumerable<JobApply> GetSeekerAppliedJob(int id)

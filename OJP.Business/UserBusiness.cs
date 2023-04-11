@@ -55,7 +55,10 @@ namespace OJP.Business
        {
             return _iUserRepository.EditProfileDetail(editProfileModel);
         }
-       
+         public Login GetSeekerDetailById(int id)
+         {
+           return _iUserRepository.GetSeekerDetailById(id);
+        }
        
        
     }

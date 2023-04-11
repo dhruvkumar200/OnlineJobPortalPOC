@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 using OJP.Data.Entities;
 using OJP.Models;
 using static OJP.Models.Common;
@@ -32,16 +33,15 @@ namespace OJP.Repository
 
         public Login GetUserDetailByEmail(string Email)
         {
-
-
             return _context.Logins.FirstOrDefault(x => x.Email == Email);
-
         }
-
+        public Login GetSeekerDetailById(int id)
+        {
+            
+            return _context.Logins.Include(x=>x.EducationDetails).Include(x=>x.TechnicalDetails).FirstOrDefault(x => x.Id==id);
+        }
         public IEnumerable<Login> GetUserList(string search, int roleId)
         {
-
-
             IEnumerable<Login> userAccount = null;
             if (roleId == (int)Common.RoleType.Recruiter)
             {
@@ -97,7 +97,7 @@ namespace OJP.Repository
             return _context.Logins.FirstOrDefault(x => x.Email == emailId);
 
         }
-         public bool EditProfileDetail(EditProfileModel editProfileModel)
+        public bool EditProfileDetail(EditProfileModel editProfileModel)
         {
             Login user = new Login();
             user.FirstName = editProfileModel.FirstName;

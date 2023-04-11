@@ -1,0 +1,126 @@
+@model OJP.Data.Entities.Login
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Item Details</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+            integrity="sha512-lQgbzihym+q3XJHbGKfoMN5NY6av94UxCTdD5j5RrIYrGzdWdtjKX9ArpCMZxEys+OtJ0+pG+HDTjw/bJyTgTQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+        .con{
+            text-align:center;
+        }
+    </style>
+    </head>
+    <body>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <table class="table table-striped">
+                        <tbody>
+                            <h2>Profile</h2>
+                            <tr>
+                                <th scope="row">Image</th>
+                                <td><img src="~/Uploads/@Model.Profile" alt="No
+                                        image found" class="img-fluid"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Name</th>
+                                <td>
+                                @Model.FirstName @Model.LastName</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Email</th>
+                                <td>@Model.Email</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Phone No</th>
+                                <td>@Model.Phone</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Age</th>
+                                <td>@Model.Age</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Address</th>
+                                <td>@Model.Address</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <hr>
+                    <h2>Technical Detail</h2>
+                    <table class="table table-striped">
+                        <tbody>
+
+                            <tr>
+                                <th scope="row">CompanyName</th>
+                                <td>
+                                @Model.TechnicalDetails.FirstOrDefault().CompanyName;</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">JobTitle</th>
+                                <td>@Model.TechnicalDetails.FirstOrDefault().JobTitle</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Experience</th>
+                                <td>@Model.TechnicalDetails.FirstOrDefault().Experience</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Description</th>
+                                <td>@Model.TechnicalDetails.FirstOrDefault().Description</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">TechnicalSkills</th>
+                                <td>@Model.TechnicalDetails.FirstOrDefault().TechSkills</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <br>
+                    <hr>
+                    <h2>Education Detail</h2>
+                    <table class="table table-striped">
+                        <tbody>
+
+                            <tr>
+                                <th scope="row">Institute</th>
+                                <td>
+                                @Model.EducationDetails.FirstOrDefault().Institute;</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Percentage</th>
+                                <td>@Model.EducationDetails.FirstOrDefault().Percentage</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cgpa</th>
+                                <td>@Model.EducationDetails.FirstOrDefault().Cgpa</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Speacilization</th>
+                                <td>@Model.EducationDetails.FirstOrDefault().Specilization</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Resume</th>
+                                <td><img src="~/Uploads/@Model.EducationDetails.FirstOrDefault().Resume" alt="No
+                                        File found" class="img-fluid"></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
+            integrity="sha512-PO0BZiJivQsKj+TnlytUBpTnLq1JXs1sKx81nJnZscA2J31GzH4kb+ccG2f1FgicL9XpAhIeA1BC+ZwRsJMcPw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </body>
+</html>
