@@ -10,12 +10,7 @@ using OJP.Data.Entities;
 using OJP.Models;
 using OnlJbPt.Models;
 
-
-
-
-
 namespace OnlJbPt.Controllers;
-
 public class JobPostController : Controller
 {
     private readonly ILogger<JobPostController> _logger;
@@ -26,7 +21,6 @@ public class JobPostController : Controller
         _logger = logger;
         _iUserBusiness = iUserBusiness;
         _iPostJobBusiness = iPostJobBusiness;
-
     }
     public IActionResult JobPostPage()
     {
@@ -37,7 +31,6 @@ public class JobPostController : Controller
         jobPost.Postedby = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserId").Value);
         _iPostJobBusiness.PostJob(jobPost);
         return RedirectToAction(actionName: "DisplayDetails", controllerName: "Home");
-
     }
     public IActionResult ApplyJob(ApplyJobModel applyJobModel, int id)
     {
@@ -45,35 +38,33 @@ public class JobPostController : Controller
         applyJobModel.JobPostId = id;
         if (_iPostJobBusiness.ApplyJob(applyJobModel) == true)
         {
-            ViewData["JobApplymsg"] = "Applied sucessfully";
+            TempData["JobApplymsg"] = "Applied sucessfully";
         }
         else
         {
-            ViewData["JobApplymsg"] = "Already Applied";
+            TempData["JobApplymsg"] = "Already Applied";
         }
 
         return RedirectToAction("SeekerAppliedJob", "JobPost");
-
     }
 
-    public IActionResult PostedJobsDetail(string Search_Data,int pg = 1)
+    public IActionResult PostedJobsDetail(int pg = 1)
     {
-        ViewBag.Search_Data = !String.IsNullOrEmpty(Search_Data) ? Search_Data : null;
         var claims = User.Identities.First().Claims.ToList();
         var claimRole = claims?.FirstOrDefault(x => x.Type.Contains("Role", StringComparison.OrdinalIgnoreCase))?.Value;
         int roleId = Convert.ToInt32(claimRole);
         IEnumerable<JobPost> PostedList = _iPostJobBusiness.GetJobPosts(roleId);
-         const int pageSize = 3;
-            if (pg < 1)
-            {
-                pg = 1;
-            }
-            int recsCount = PostedList.Count();
-            var pager = new Pager(recsCount, pg, pageSize);
-            int recSkip = (pg - 1) * pageSize;
-            var data = PostedList.Skip(recSkip).Take(pager.Pagesize).ToList();
-            this.ViewBag.Pager = pager;
-            return View(data);
+        const int pageSize = 3;
+        if (pg < 1)
+        {
+            pg = 1;
+        }
+        int recsCount = PostedList.Count();
+        var pager = new Pager(recsCount, pg, pageSize);
+        int recSkip = (pg - 1) * pageSize;
+        var data = PostedList.Skip(recSkip).Take(pager.Pagesize).ToList();
+        this.ViewBag.Pager = pager;
+        return View(data);
     }
     public IActionResult SeekerAppliedJob()
     {

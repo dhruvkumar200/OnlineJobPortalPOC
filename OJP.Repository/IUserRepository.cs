@@ -6,7 +6,6 @@ namespace OJP.Repository
     public interface IUserRepository
     {
         bool AddUser(AddProfileModel addUser);
-
         public IEnumerable<Login> GetUserList(string Search_Data, int roleId);
         public Login GetUserDetailByEmail(String Email);
         public bool VerifyEmail(string email);

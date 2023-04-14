@@ -17,6 +17,10 @@
     </PackageReference>
     <PackageReference Include="PagedList.Core" Version="1.17.4" />
     <PackageReference Include="PagedList.Core.Mvc" Version="3.0.0" />
+    <PackageReference Include="PayPal" Version="1.9.1" />
+    <PackageReference Include="PayPalMerchantSDK" Version="2.16.250" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0-preview.3.23174.8" />
+    <PackageReference Include="System.Security.Permissions" Version="7.0.0" />
     <PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.7" />
   
   </ItemGroup>

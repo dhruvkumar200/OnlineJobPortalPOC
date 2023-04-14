@@ -13,7 +13,7 @@ namespace OJP.Business
         {
             _iUserRepository = iUserRepository;
         }
-        
+
         public Login GetUserDetailByEmail(String Email)
         {
 
@@ -28,7 +28,6 @@ namespace OJP.Business
         {
             return _iUserRepository.Education(edm);
         }
-
         public IEnumerable<Login> GetUserList(string Search_Data, int roleId)
         {
             return _iUserRepository.GetUserList(Search_Data, roleId);
@@ -46,21 +45,18 @@ namespace OJP.Business
         {
             return _iUserRepository.GetUserById(id);
         }
-    
         public bool IsDetailAdded(int id)
         {
             return _iUserRepository.IsDetailAdded(id);
         }
-       public bool EditProfileDetail(EditProfileModel editProfileModel)
-       {
+        public bool EditProfileDetail(EditProfileModel editProfileModel)
+        {
             return _iUserRepository.EditProfileDetail(editProfileModel);
         }
-         public Login GetSeekerDetailById(int id)
-         {
-           return _iUserRepository.GetSeekerDetailById(id);
+        public Login GetSeekerDetailById(int id)
+        {
+            return _iUserRepository.GetSeekerDetailById(id);
         }
-       
-       
     }
 
 }

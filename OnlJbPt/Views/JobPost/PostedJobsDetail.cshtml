@@ -9,10 +9,6 @@
         pageNo = pager.CurrentPage;
     }
     Layout = "Layout2";
-    
-    
-   
-
 }
 <style>
     table {
@@ -39,14 +35,6 @@
         text-decoration: underline;
     }
 </style>
-<div>
-    <p>
-        Search: @Html.TextBox("Search_Data", ViewBag.FilterValue as string)
-        <input type="submit" value="Find" />
-    </p>
-
-</div>
-
 
 <div>
     <h2>PostedJobs</h2>
@@ -66,8 +54,7 @@
             <th>EndDate </th>
             <th>PostedBy</th>
             <th>ApplyJob</th>
-
-
+            <th>PayHere</th>
         </tr>
     </thead>
     <tbody>
@@ -81,7 +68,14 @@
                     @Post.JobTitle
                 </td>
                 <td>
-                    @Post.JobType
+                    @if (Post.JobType==1)
+                    {
+                        <label>Remote</label>
+                    }
+                    else
+                    {
+                        <label>Office</label>
+                    }
                 </td>
                 <td>
                     @Post.JobDescription
@@ -104,7 +98,6 @@
                 <td>
                     @Post.EndDate
                 </td>
-
                 <td>
                     @Post.PostedByNavigation.FirstName
                     @Post.PostedByNavigation.LastName
@@ -113,7 +106,10 @@
                     <a asp-area="" asp-controller="JobPost" asp-action="ApplyJob"
                     asp-route-id="@Post.Id">Apply</a>
                 </td>
-
+                 <td>
+                    <a asp-area="" asp-controller="Payment" asp-action="PaymentWithPaypal"
+                    asp-route-id="@Post.Id">PayNow</a>
+                </td>
             </tr>
         }
     </tbody>

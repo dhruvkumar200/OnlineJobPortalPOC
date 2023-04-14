@@ -1,6 +1,7 @@
 @model IEnumerable<OJP.Data.Entities.JobApply>
 @{
-    Layout="Layout1";
+    Layout="Layout2";
+    @TempData["Errormsg"]
     }
 <style>
     table {
@@ -28,7 +29,7 @@
     }
 </style>
 
-<h1>@ViewData["Errormsg"]</h1>
+
 <div>
     <h2>AppliedJobs</h2>
 </div>
@@ -38,10 +39,7 @@
             <th>CompanyName</th>
             <th>JobTitle</th>
             <th>AppliedAt</th>
-            <th>JobType</th>
-            
-           
-          
+            <th>JobType</th>  
         </tr>
     </thead>
     <tbody>
@@ -59,14 +57,18 @@
                     @applied.AppliedAt
                 </td>
                 <td>
-                   @applied.JobPost.JobType
+                  @if(applied.JobPost.JobType==1)
+                  {
+                    <label>Remote</label>
+                  }
+                  else
+                  {
+                    <label>Office</label>
+                  }
                 </td>
                 <td>
                     @Html.ActionLink("Delete", "DeleteAppliedJob", new { @Id=applied.Id}, new { onclick = "return confirm('Are you sure you want to delete this user detail?');" })
-                </td>
-          
-               
-                
+                </td> 
             </tr>
         }
     </tbody>

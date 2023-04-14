@@ -28,8 +28,8 @@ namespace OJP.Models
         }
         public enum JobType
         {
-            Remote,
-            Office
+            Remote=1,
+            Office=2
         }
         
     }

@@ -9,12 +9,28 @@
       "PackagePath": "staticwebassets\\Uploads\\command.txt"
     },
     {
+      "Id": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\images (4).jpg",
+      "PackagePath": "staticwebassets\\Uploads\\images (4).jpg"
+    },
+    {
+      "Id": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\images (5).jpg",
+      "PackagePath": "staticwebassets\\Uploads\\images (5).jpg"
+    },
+    {
+      "Id": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\images (7).jpg",
+      "PackagePath": "staticwebassets\\Uploads\\images (7).jpg"
+    },
+    {
       "Id": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\profile.jpg",
       "PackagePath": "staticwebassets\\Uploads\\profile.jpg"
     },
     {
       "Id": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\profile2.jpg",
       "PackagePath": "staticwebassets\\Uploads\\profile2.jpg"
+    },
+    {
+      "Id": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\resume.png",
+      "PackagePath": "staticwebassets\\Uploads\\resume.png"
     },
     {
       "Id": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\css\\site.css",

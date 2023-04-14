@@ -3,6 +3,7 @@ using OJP.Repository;
 using OJP.Business;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using OJP.Data.Entities;
+using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,13 +12,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews()
 .AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix)
  .AddDataAnnotationsLocalization();
-builder.Services.AddScoped<IUserBusiness,UserBusiness>();
-builder.Services.AddScoped<IUserRepository,UserRepository>();
-builder.Services.AddScoped<IPostJobBusiness,PostJobBusiness>();
-builder.Services.AddScoped<IPostJobRepository,PostJobRepository>();
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x=>x.LoginPath=new PathString("/Login/Index"));
-builder.Services.AddDbContext<UserDBContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("JobPortalDatabase")));
-
+builder.Services.AddScoped<IUserBusiness, UserBusiness>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IPostJobBusiness, PostJobBusiness>();
+builder.Services.AddScoped<IPostJobRepository, PostJobRepository>();
+builder.Services.AddDbContext<UserDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("JobPortalDatabase")));
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x => x.LoginPath = new PathString("/Login/Index"));
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddSession();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -30,14 +32,12 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
 app.UseCookiePolicy();
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
 app.Run();

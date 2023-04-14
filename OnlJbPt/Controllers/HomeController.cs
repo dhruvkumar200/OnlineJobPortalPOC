@@ -8,33 +8,27 @@ using OJP.Business;
 using OJP.Data.Entities;
 using OJP.Models;
 using OnlJbPt.Models;
-
-
-
-
+using PayPal.Api;
 
 namespace OnlJbPt.Controllers;
-
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly IUserBusiness _iUserBusiness;
     private readonly IPostJobBusiness _iPostJobBusiness;
     private Microsoft.AspNetCore.Hosting.IHostingEnvironment Environment;
-    public HomeController(ILogger<HomeController> logger, IUserBusiness iUserBusiness, IPostJobBusiness iPostJobBusiness, Microsoft.AspNetCore.Hosting.IHostingEnvironment _environment)
+    public HomeController(ILogger<HomeController> logger, IUserBusiness iUserBusiness,
+     IPostJobBusiness iPostJobBusiness, Microsoft.AspNetCore.Hosting.IHostingEnvironment _environment)
     {
         _logger = logger;
         _iUserBusiness = iUserBusiness;
         _iPostJobBusiness = iPostJobBusiness;
         Environment = _environment;
     }
-
-
     public IActionResult Index()
     {
         return View();
     }
-
     public IActionResult Privacy()
     {
         return View();
@@ -50,7 +44,6 @@ public class HomeController : Controller
 
         if (userDetails != null && BCrypt.Net.BCrypt.Verify(loginModel.Password, userDetails.Password))
         {
-
             var claims = new Claim[] { new Claim(ClaimTypes.Email, userDetails.Email), new Claim(ClaimTypes.Role, userDetails.RoleId.ToString()), new Claim("UserId", userDetails.Id.ToString()) };
             var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
@@ -69,15 +62,12 @@ public class HomeController : Controller
                     return RedirectToAction("SeekerEducationForm", "Home");
                 }
             }
-
         }
         else
         {
             ViewData["Errormsg"] = "Incorrect Email or Password";
             return View("LoginForm");
         }
-
-
 
     }
     public IActionResult AddProfile()
@@ -104,20 +94,36 @@ public class HomeController : Controller
         }
         addProfileModel.Profile = fileName;
         _iUserBusiness.NewRegistration(addProfileModel);
-        return RedirectToAction(actionName: "Index", controllerName: "Home");
+        if (addProfileModel.RoleType == Common.RoleType.Seeker)
+        {
+            return RedirectToAction(actionName: "Index", controllerName: "Home");
+        }
+        else
+        {
+            return RedirectToAction(actionName: "Index", controllerName: "Home");
+        }
 
     }
 
     [Authorize(Roles = "1,3")]
-    public IActionResult DisplayDetails(string Search_Data)
+    public IActionResult DisplayDetails(string Search_Data, int pg = 1)
     {
         ViewBag.Search_Data = !String.IsNullOrEmpty(Search_Data) ? Search_Data : null;
         var claims = User.Identities.First().Claims.ToList();
         var claimRole = claims?.FirstOrDefault(x => x.Type.Contains("Role", StringComparison.OrdinalIgnoreCase))?.Value;
         int roleId = Convert.ToInt32(claimRole);
         IEnumerable<Login> UserList = _iUserBusiness.GetUserList(ViewBag.Search_Data, roleId);
-        UserList = UserList.ToList();
-        return View(UserList);
+        const int pageSize = 3;
+        if (pg < 1)
+        {
+            pg = 1;
+        }
+        int recsCount = UserList.Count();
+        var pager = new Pager(recsCount, pg, pageSize);
+        int recSkip = (pg - 1) * pageSize;
+        var data = UserList.Skip(recSkip).Take(pager.Pagesize).ToList();
+        this.ViewBag.Pager = pager;
+        return View(data);
     }
     public IActionResult SeekerEducationForm()
     {
@@ -177,9 +183,9 @@ public class HomeController : Controller
         EditProfileModel editProfileModel = _iUserBusiness.GetUserById(id);
         return View("EditProfile", editProfileModel);
     }
-     public IActionResult ChangeProfileDetail(EditProfileModel editProfileModel,IFormFile Profile)
-     {
-         string wwwPath = this.Environment.WebRootPath;
+    public IActionResult ChangeProfileDetail(EditProfileModel editProfileModel, IFormFile Profile)
+    {
+        string wwwPath = this.Environment.WebRootPath;
         string contentPath = this.Environment.ContentRootPath;
         string path = Path.Combine(this.Environment.WebRootPath, "Uploads");
         if (!Directory.Exists(path))
@@ -200,7 +206,7 @@ public class HomeController : Controller
     }
     public IActionResult ViewSeekerDetail(int id)
     {
-       var details= _iUserBusiness.GetSeekerDetailById(id);
+        var details = _iUserBusiness.GetSeekerDetailById(id);
         return View(details);
     }
 

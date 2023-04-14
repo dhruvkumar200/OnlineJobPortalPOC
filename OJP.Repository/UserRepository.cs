@@ -37,8 +37,8 @@ namespace OJP.Repository
         }
         public Login GetSeekerDetailById(int id)
         {
-            
-            return _context.Logins.Include(x=>x.EducationDetails).Include(x=>x.TechnicalDetails).FirstOrDefault(x => x.Id==id);
+
+            return _context.Logins.Include(x => x.EducationDetails).Include(x => x.TechnicalDetails).FirstOrDefault(x => x.Id == id);
         }
         public IEnumerable<Login> GetUserList(string search, int roleId)
         {
@@ -46,23 +46,25 @@ namespace OJP.Repository
             if (roleId == (int)Common.RoleType.Recruiter)
             {
                 userAccount = _context.Logins.Where(x => x.RoleId == (int)Common.RoleType.Seeker);
+                if (userAccount.Count() > 0 && !string.IsNullOrEmpty(search))
+                {
+                    userAccount = _context.Logins.Where(x => x.FirstName.Contains(search) && x.RoleId == (int)Common.RoleType.Seeker);
+                }
             }
             else
             {
                 userAccount = _context.Logins.Where(x => x.RoleId != (int)Common.RoleType.Admin);
-            }
-            if (userAccount.Count() > 0 && !string.IsNullOrEmpty(search))
-            {
-                userAccount = _context.Logins.Where(x => x.FirstName.Contains(search));
+                if (userAccount.Count() > 0 && !string.IsNullOrEmpty(search))
+                {
+                    userAccount = _context.Logins.Where(x => x.FirstName.Contains(search));
+                }
             }
             userAccount = userAccount.OrderBy(stu => stu.FirstName).ToList();
             return userAccount;
         }
 
-
         public bool Education(EducationDetailModel edm)
         {
-
             EducationDetail educationDetail = new EducationDetail();
             educationDetail.Institute = edm.Institute;
             educationDetail.Percentage = edm.Percentage;
@@ -90,7 +92,6 @@ namespace OJP.Repository
         {
             return _context.TechnicalDetails.Any(x => x.CreatedBy == id) ? true : false;
         }
-
 
         public Login Profile(string emailId)
         {
@@ -126,7 +127,6 @@ namespace OJP.Repository
             editProfileModel.Phone = detail.Phone;
             editProfileModel.Profile = detail.Profile;
             editProfileModel.Profile = detail.Password;
-
             return editProfileModel;
         }
     }

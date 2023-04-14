@@ -12,7 +12,6 @@ namespace OJP.Business
         {
             _iPostJobRepository = iPostJobRepository;
         }
-
         public bool PostJob(JobPostModel jobPost)
         {
             return _iPostJobRepository.PostJob(jobPost);
@@ -33,6 +32,5 @@ namespace OJP.Business
         {
             return _iPostJobRepository.DeleteAppliedJob(id);
         }
-
     }
 }

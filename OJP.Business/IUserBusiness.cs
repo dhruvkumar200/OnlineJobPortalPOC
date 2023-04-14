@@ -17,6 +17,5 @@ namespace OJP.Business
         public bool IsDetailAdded(int id);
         public bool EditProfileDetail(EditProfileModel editProfileModel);
         public Login GetSeekerDetailById(int id);
-
     }
 }

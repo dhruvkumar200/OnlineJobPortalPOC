@@ -1,7 +1,16 @@
+@using OJP.Models;
 @model IEnumerable<OJP.Data.Entities.Login>
 
 <link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
+     Pager pager = new Pager();
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+   
     Layout = "Layout1";
 }
 
@@ -41,7 +50,7 @@
     </div>
 }
 <div>
-    <h2>Job seeker Details</h2>
+    <h2>Users Details</h2>
 </div>
 
 <table>
@@ -64,10 +73,9 @@
         {
             <tr>
                 <td>
-                    <img src="~/Uploads/@prod.Profile" height=20% width=20% alt="NO
+                    <img src="~/Uploads/@prod.Profile" height=40% width=40% alt="NO
                     IMAGE FOUND">
                 </td>
-
                 <td>
                     @prod.FirstName
                 </td>
@@ -89,7 +97,6 @@
                     {
                         @prod.Phone
                     }
-
                 </td>
                 <td>@if (prod.RoleId == 1)
                     {
@@ -107,11 +114,50 @@
                     <a asp-area="" asp-controller="Home" asp-action="ViewSeekerDetail"
                     asp-route-id="@prod.Id">ViewDetails</a>
                 </td>
-
-
             </tr>
         }
     </tbody>
 </table>
 <br />
+<div class="container">
+    @if (pager.TotalPages > 0)
+    {
+        <ul class="pagination justify-content-end">
+            @if (pager.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Home"
+                asp-action="DisplayDetails"
+                asp-route-pg="1">First</a>
+                </li>
+                <li>
+                    <a class="page-link" asp-controller="Home"
+                asp-action="DisplayDetails"
+                asp-route-pg="@(pager.CurrentPage-1)">Previous</a>
+                </li>
+            }
+            @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+            {
+                <li class="page-item @(pge == pager.CurrentPage ? "active" : "")">
+                    <a class="page-link" asp-controller="Home"
+                asp-action="DisplayDetails"
+                asp-route-pg="@pge">@pge</a>
+                </li>
+            }
+            @if (pager.CurrentPage < pager.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Home"
+                asp-action="DisplayDetails"
+                asp-route-pg="@(pager.CurrentPage+1)">Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" asp-controller="Home"
+                asp-action="DisplayDetails"
+                asp-route-pg="@(pager.TotalPages)">Last</a>
+                </li>
+            }
+        </ul>
+    }
+</div>
 

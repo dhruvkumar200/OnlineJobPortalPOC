@@ -18,7 +18,7 @@
 
                         <div class="form-group">
                             <label for="Title">Job Type</label>
-                            @Html.DropDownListFor(m => m.Category, Html.GetEnumSelectList<OJP.Models.Common.JobType>(), "Select", new { @class = "form-control" })
+                            @Html.DropDownListFor(m => m.JobType, Html.GetEnumSelectList<OJP.Models.Common.JobType>(), "Select", new { @class = "form-control" })
                             @Html.ValidationMessageFor(x=>x.JobType)
                         </div>
                       
@@ -26,12 +26,6 @@
                             <label for="Description">Description</label>
                             @Html.TextAreaFor(m => m.Description, new { @class = "form-control", placeholder = "Enter Jop Description",  })
                             @Html.ValidationMessageFor(x=>x.Description)
-                        </div>
-
-                        <div class="form-group">
-                            <label for="Category">Category</label>
-                            @Html.DropDownListFor(m => m.Category, Html.GetEnumSelectList<OJP.Models.Common.Category>(), "Select", new { @class = "form-control" })
-                            @Html.ValidationMessageFor(x=>x.JobType)
                         </div>
 
                         <div class="form-group">

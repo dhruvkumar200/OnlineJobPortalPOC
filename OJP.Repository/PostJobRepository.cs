@@ -17,7 +17,7 @@ namespace OJP.Repository
             JobPost post = new JobPost();
             post.JobTitle = jobPost.Title;
             post.JobDescription = jobPost.Description;
-            post.JobType = jobPost.JobType;
+            post.JobType = (int)jobPost.JobType;
             post.Location = jobPost.Location;
             post.Salary = jobPost.Salary;
             post.CompanyName = jobPost.CompanyName;
@@ -47,7 +47,6 @@ namespace OJP.Repository
 
         public IEnumerable<JobPost> GetJobPosts(int id)
         {
-            
             return _context.JobPosts.Include(x => x.PostedByNavigation).ToList();
         }
         public IEnumerable<JobApply> GetSeekerAppliedJob(int id)
@@ -64,7 +63,6 @@ namespace OJP.Repository
                 _context.SaveChanges();
             }
             return true;
-
         }
 
     }

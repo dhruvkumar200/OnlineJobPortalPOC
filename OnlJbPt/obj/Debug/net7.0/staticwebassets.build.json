@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PGJnSsMvLWlOlfAukUiTwaNX/xIquLESVtRo1mV4Z+0=",
+  "Hash": "As4MVuh/TOZcrmsUC4ujlxHd72+rL8YSrFoVpkiIqvY=",
   "Source": "OnlJbPt",
   "BasePath": "_content/OnlJbPt",
   "Mode": "Default",
@@ -1088,6 +1088,57 @@
       "OriginalItemSpec": "wwwroot\\Uploads\\command.txt"
     },
     {
+      "Identity": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\images (4).jpg",
+      "SourceId": "OnlJbPt",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\",
+      "BasePath": "_content/OnlJbPt",
+      "RelativePath": "Uploads/images (4).jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\images (4).jpg"
+    },
+    {
+      "Identity": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\images (5).jpg",
+      "SourceId": "OnlJbPt",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\",
+      "BasePath": "_content/OnlJbPt",
+      "RelativePath": "Uploads/images (5).jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\images (5).jpg"
+    },
+    {
+      "Identity": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\images (7).jpg",
+      "SourceId": "OnlJbPt",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\",
+      "BasePath": "_content/OnlJbPt",
+      "RelativePath": "Uploads/images (7).jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\images (7).jpg"
+    },
+    {
       "Identity": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\profile.jpg",
       "SourceId": "OnlJbPt",
       "SourceType": "Discovered",
@@ -1120,6 +1171,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\profile2.jpg"
+    },
+    {
+      "Identity": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\Uploads\\resume.png",
+      "SourceId": "OnlJbPt",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Projects\\ProjectAssignment\\OnlJbPt\\wwwroot\\",
+      "BasePath": "_content/OnlJbPt",
+      "RelativePath": "Uploads/resume.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\resume.png"
     }
   ]
 }

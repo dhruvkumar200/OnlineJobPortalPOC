@@ -45,7 +45,7 @@ namespace OJP.Models
     [Required(ErrorMessage = "Required")]
     [DataType(DataType.Date)]
     public DateTime EndDate { get; set; }
-    public string JobType{get; set;}
+    public JobType JobType{get; set;}
     public int Postedby { get; set; }
 
 }

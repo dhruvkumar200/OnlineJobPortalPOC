@@ -21,8 +21,10 @@ namespace OJP.Models
     
         public string CompanyName { get; set; }
         public decimal? Experience { get; set; }
+
         [Required]
         public string Description { get; set; }
+        
         [Required]
         public string TechSkills { get; set; }
         public string JobTitle { get; set; }

@@ -9,9 +9,9 @@ public partial class JobPost
 
     public string? JobTitle { get; set; }
 
-    public string? JobType { get; set; }
+    public int? JobType { get; set; }
 
-    public string? CompanyName { get; set; }
+    public string CompanyName { get; set; } = null!;
 
     public string? Location { get; set; }
 
